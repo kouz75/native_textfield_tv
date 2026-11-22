@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.0.4] - 2026-11-22
+
+### Android build compatibility
+- Increase the plugin's `compileSdkVersion` from 33 to 34 to satisfy the API requirement of `androidx.fragment:fragment:1.7.1`.
+- Update the Android Gradle Plugin to 8.11.1 and Kotlin to 2.2.20 in the plugin and example app.
+- Update the example app's Gradle wrapper from 8.3 to 8.14.3 for compatibility with the installed Flutter SDK.
+- Keep the plugin's minimum Android SDK at API 19.
+
+### Validation
+- Successfully build the example Android debug APK.
+- Pass all 8 existing Flutter tests.
+
 ## [0.0.3] - 2025-07-26
 
 ### 版本更新
