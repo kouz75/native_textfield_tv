@@ -7,8 +7,8 @@ issue_tracker: https://github.com/zhuhaichao518/native_textfield_tv/issues
 documentation: https://github.com/zhuhaichao518/native_textfield_tv/blob/main/README.md
 
 environment:
-  sdk: '>=3.0.0 <4.0.0'
-  flutter: '>=3.3.0'
+  sdk: ^3.12.0
+  flutter: '>=3.44.0'
 
 # 添加发布信息
 publish_to: 'https://pub.dev'

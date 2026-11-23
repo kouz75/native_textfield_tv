@@ -2,7 +2,6 @@ group 'com.example.native_textfield_tv'
 version '1.0'
 
 buildscript {
-    ext.kotlin_version = '2.2.20'
     repositories {
         google()
         mavenCentral()
@@ -10,7 +9,6 @@ buildscript {
 
     dependencies {
         classpath 'com.android.tools.build:gradle:8.11.1'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
 
@@ -23,12 +21,6 @@ rootProject.allprojects {
 
 apply plugin: 'com.android.library'
 
-// AGP 9+ registers Kotlin itself unless built-in Kotlin is disabled.
-def usesBuiltInKotlin = extensions.findByName('kotlin') != null
-if (!usesBuiltInKotlin) {
-    apply plugin: 'kotlin-android'
-}
-
 android {
     compileSdkVersion 34
     namespace 'com.example.native_textfield_tv'
@@ -38,14 +30,13 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
-    // Built-in Kotlin inherits the JVM target from compileOptions.
-    if (!usesBuiltInKotlin) {
-        kotlinOptions {
-            jvmTarget = '1.8'
-        }
-    }
-
     defaultConfig {
         minSdkVersion 19
+    }
+}
+
+kotlin {
+    compilerOptions {
+        jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_1_8
     }
 }

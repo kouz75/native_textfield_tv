@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+- Migrate the Android plugin to built-in Kotlin and the compiler options DSL.
+- Require Flutter 3.44 / Dart 3.12 or newer.
+- Migrate the example to AGP 9.3.1, Gradle 9.5.0 and built-in Kotlin (Flutter 3.47+).
+
 ## [0.0.4] - 2026-11-22
 
 ### Android build compatibility
