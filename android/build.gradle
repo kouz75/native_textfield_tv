@@ -22,7 +22,12 @@ rootProject.allprojects {
 }
 
 apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
+
+// AGP 9+ registers Kotlin itself unless built-in Kotlin is disabled.
+def usesBuiltInKotlin = extensions.findByName('kotlin') != null
+if (!usesBuiltInKotlin) {
+    apply plugin: 'kotlin-android'
+}
 
 android {
     compileSdkVersion 34
@@ -33,19 +38,14 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
-    kotlinOptions {
-        jvmTarget = '1.8'
-    }
-
-    sourceSets {
-        main.java.srcDirs += 'src/main/kotlin'
+    // Built-in Kotlin inherits the JVM target from compileOptions.
+    if (!usesBuiltInKotlin) {
+        kotlinOptions {
+            jvmTarget = '1.8'
+        }
     }
 
     defaultConfig {
         minSdkVersion 19
     }
 }
-
-dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-} 
